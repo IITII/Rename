@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<GridPane minHeight="200" minWidth="400" prefHeight="600.0" prefWidth="900.0" maxHeight="-Infinity"
+          maxWidth="-Infinity"
+          fx:id="root"
+          xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="Controller">
+    <columnConstraints>
+        <ColumnConstraints prefWidth="900"/>
+        <ColumnConstraints prefWidth="900"/>
+        <ColumnConstraints prefWidth="900"/>
+        <ColumnConstraints prefWidth="900"/>
+    </columnConstraints>
+    <HBox alignment="CENTER" spacing="10"
+          GridPane.columnIndex="0"
+          GridPane.columnSpan="4"
+          style="-fx-padding: 5;-fx-font-size: 14px;">
+        <Label textAlignment="CENTER">目录：</Label>
+        <TextField fx:id="dirPathTF" prefWidth="600" promptText="请输入欲重命名文件所在目录"/>
+        <!--            <Button>浏览</Button>-->
+        <JFXButton fx:id="selectDirBtn" minWidth="80"
+                   onAction="#fileChooser"
+                   style=" -fx-padding: 0.7em 0.57em;
+                                                        -fx-font-size: 14px;
+                                                        -jfx-button-type: RAISED;
+                                                        -fx-background-color: rgb(77,102,204);
+                                                        -fx-pref-width: 80;
+                                                        -fx-text-fill: WHITE;
+                                                        ">浏览
+        </JFXButton>
+    </HBox>
+    <HBox alignment="CENTER"
+          style="-fx-padding: 5;-fx-font-size: 14px;"
+          GridPane.columnIndex="0"
+          GridPane.rowIndex="1"
+          GridPane.columnSpan="4">
+        <VBox alignment="CENTER" spacing="10"
+              prefWidth="750"
+              style="-fx-padding: 5;-fx-font-size: 14px;">
+            <TextField fx:id="filterTF" promptText="请输入欲操作的文件名应该包含的字符,多个匹配项应使用英文冒号分隔"/>
+            <TextField fx:id="preStrTF" promptText="请输入欲替换的文件名字符,多个匹配项应使用英文冒号分隔"/>
+            <TextField fx:id="afterStrTF" promptText="请输入替换后的文件名字符,多个匹配项应使用英文冒号分隔"/>
+            <!--            <JFXButton fx:id="replaceBtn" minWidth="80" prefWidth="750" onAction="#notification" style=" -fx-padding: 0.7em 0.57em;-->
+            <HBox alignment="CENTER"
+                  style="-fx-padding: 5;-fx-font-size: 14px;">
+                <JFXButton fx:id="replaceBtn" minWidth="80" prefWidth="750" onAction="#rename" style=" -fx-padding: 0.7em 0.7em 0.7em 0.57em;
+                                                    -fx-font-size: 14px;
+                                                    -jfx-button-type: RAISED;
+                                                    -fx-background-color: rgb(77,102,204);
+                                                    -fx-pref-width: 120;
+                                                    -fx-text-fill: WHITE;
+                                                    ">点击替换
+                </JFXButton>
+                <Label prefWidth="20"></Label>
+                <JFXButton fx:id="openDir" minWidth="80" prefWidth="750" onAction="#openDir" style=" -fx-padding: 0.7em 0.7em 0.7em 0.57em;
+                                                    -fx-font-size: 14px;
+                                                    -jfx-button-type: RAISED;
+                                                    -fx-background-color: rgb(77,102,204);
+                                                    -fx-pref-width: 120;
+                                                    -fx-text-fill: WHITE;
+                                                    ">打开输出文件夹
+                </JFXButton>
+            </HBox>
+        </VBox>
+    </HBox>
+    <HBox alignment="CENTER"
+          style="-fx-padding: 5;-fx-font-size: 14px;"
+          GridPane.columnIndex="0"
+          GridPane.columnSpan="4"
+          GridPane.rowIndex="2"
+          GridPane.rowSpan="2"
+    >
+        <TableView prefWidth="900" prefHeight="300" fx:id="preTableView"/>
+    </HBox>
+    <HBox alignment="CENTER"
+          style="-fx-padding: 5;-fx-font-size: 14px;"
+          GridPane.columnIndex="0"
+          GridPane.columnSpan="4"
+          GridPane.rowIndex="4"
+          GridPane.rowSpan="2"
+    >
+        <TableView prefWidth="900" prefHeight="300" fx:id="afterTableView"/>
+    </HBox>
+    <!--    <TextArea fx:id="log"-->
+    <!--              style="-fx-padding: 5;-fx-font-size: 14px;"-->
+    <!--              editable="false"-->
+    <!--              GridPane.columnIndex="0"-->
+    <!--              GridPane.columnSpan="4"-->
+    <!--              GridPane.rowIndex="4"/>-->
+
+</GridPane>
