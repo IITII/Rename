@@ -4,6 +4,9 @@ import java.util.Map;
 
 //@TODO 文件列表的自定义排序
 
+/**
+ * @author IITII
+ */
 public class FileInfo implements Comparable<FileInfo>, Cloneable, Serializable {
     String fileName;
     String fileSize;
@@ -45,7 +48,7 @@ public class FileInfo implements Comparable<FileInfo>, Cloneable, Serializable {
     // Custom compare
     @Override
     public int compareTo(FileInfo o) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
         String[] mark = {"PB", "GB", "MB", "KB", "B"};
         int index = 5;
         for (String temp : mark) {
@@ -54,15 +57,17 @@ public class FileInfo implements Comparable<FileInfo>, Cloneable, Serializable {
         }
         String[] string = this.getFileSize().split(" ");
         String[] string1 = o.getFileSize().split(" ");
-        if (map.get(string[1]) > map.get(string1[1]))
+        if (map.get(string[1]) > map.get(string1[1])) {
             return 1;
-        else if (map.get(string[1]) < map.get(string1[1]))
+        } else if (map.get(string[1]) < map.get(string1[1])) {
             return -1;
-        else if (map.get(string[1]).equals(map.get(string1[1])))
-            if (Integer.parseInt(string[0]) > Integer.parseInt(string1[0]))
+        } else if (map.get(string[1]).equals(map.get(string1[1]))) {
+            if (Integer.parseInt(string[0]) > Integer.parseInt(string1[0])) {
                 return 1;
-            else if (Integer.parseInt(string[0]) < Integer.parseInt(string1[0]))
+            } else if (Integer.parseInt(string[0]) < Integer.parseInt(string1[0])) {
                 return -1;
+            }
+        }
         return 0;
     }
 }

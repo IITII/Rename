@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
+/**
+ * @author IITII
+ */
 public class Main extends Application {
 
     final String title = "Rename for Anime";
