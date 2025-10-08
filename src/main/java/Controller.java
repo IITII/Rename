@@ -143,14 +143,14 @@ public class Controller implements Initializable {
             }
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             for (File singleFile : files) {
-                if (singleFile.isFile()) {
+                // if (singleFile.isFile()) {
                     arrayList.add(
                             new FileInfo(
                                     singleFile.getName(),
                                     fileSize(singleFile.length()),
                                     sdf.format(file.lastModified())
                             ));
-                }
+                // }
             }
             return arrayList;
         } catch (Exception e) {
@@ -255,12 +255,14 @@ public class Controller implements Initializable {
     }
 
     private ArrayList<String> textFiledToArray(TextField textField, String spilt) {
+        String in = textField.getText();
+        in = in == null ? "" : in;
         ArrayList<String> arrayList = new ArrayList<>();
-        String[] strings = textField.getText().split(spilt);
+        String[] strings = in.split(spilt);
         for (String temp : strings) {
-            if (!"".equals(temp)) {
+            // if (!"".equals(temp)) {
                 arrayList.add(temp);
-            }
+            // }
         }
         return arrayList;
     }
